@@ -11,7 +11,7 @@
 */
 interface Product
 {
-  function create();
+  void Create();
 }
 
 /**
@@ -19,7 +19,7 @@ interface Product
 */
 interface Factory
 {
-  function getProduct($input);
+  void getProduct($input);
 }
 
 /**

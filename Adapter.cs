@@ -10,61 +10,61 @@
 /**
 * Interface for SQL
 */
-interface SQL
+interface ISQL
 {
-  function doSqlQuery();
+  string DoSqlQuery();
 }
 
 /**
 * Interface for NoSQL
 */
-interface NoSQL
+interface INoSQL
 {
-  function doNoSqlQuery();
+  string DoNoSqlQuery();
 }
 
 /**
 * Class Mysql
 */
-class Mysql implements SQL
+class Mysql : ISQL
 {
-  public function doSqlQuery()
+  public string DoSqlQuery()
   {
-    echo "Run sql query\n";
+    Console.WriteLine("Run sql query");
   }
 }
 
 /**
 * Class Casandra
 */
-class Casandra implements NoSQL
+class Casandra : INoSQL
 {
-  public function doNoSqlQuery()
+  public string DoNoSqlQuery()
   {
-    echo "Run nosql query\n";
+    Console.WriteLine("Run nosql query");
   }
 }
 
 /**
 * Class Adapter
 */
-class Adapter implements NoSQL
+class Adapter : NoSQL
 {
-  private $sqlinterface;
+  private ISQL _sqlinterface;
 
-  public function __construct(SQL $sqlinterface)
+  public function __construct(ISQL Sqlinterface)
   {
-    $this->sqlinterface = $sqlinterface;
+    _sqlinterface = Sqlinterface;
   }
 
-  public function doNoSqlQuery()
+  public function DoNoSqlQuery()
   {
-    $this->sqlinterface->doSqlQuery();
+    _sqlinterface.DoSqlQuery();
   }
 }
 
 
 // How it works
-$sql = new Mysql();
-$adapter = new Adapter($sql);
-$adapter->doNoSqlQuery();
+var sql = new Mysql();
+var adapter = new Adapter(sql);
+adapter.DoNoSqlQuery();
