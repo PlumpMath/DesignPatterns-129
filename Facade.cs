@@ -11,7 +11,7 @@
 */
 class Processor
 {
-  public function runProcess()
+  public void RunProcess()
   {
     // Complex computer CPU process data
   }
@@ -22,7 +22,7 @@ class Processor
 */
 class VideoCard
 {
-  public function renderGraphics()
+  public void RenderGraphics()
   {
     // Complex video card algorithm
   }
@@ -33,7 +33,7 @@ class VideoCard
 */
 class Ram
 {
-  public function startMemory()
+  public void StartMemory()
   {
     // Complex Ram stuff
   }
@@ -44,25 +44,25 @@ class Ram
 */
 class ComputerFacade
 {
-  private $processor;
-  private $videocard;
-  private $ram;
+  private Processor _processor;
+  private VideoCard _videocard;
+  private Ram _ram;
 
-  public function __construct()
+  public ComputerFacade()
   {
-    $this->processor = new Processor();
-    $this->videocard = new VideoCard();
-    $this->ram = new Ram();
+    _processor = new Processor();
+    _videocard = new VideoCard();
+    _ram = new Ram();
   }
 
-  public function startComputer()
+  public function StartComputer()
   {
-    $this->processor->runProcess();
-    $this->videocard->renderGraphics();
-    $this->ram->startMemory();
+    _processor.RunProcess();
+    _videocard.RenderGraphics();
+    _ram.StartMemory();
   }
 }
 
 // How it works
-$facade = new ComputerFacade();
-$facade->startComputer();
+var facade = new ComputerFacade();
+facade.StartComputer();

@@ -64,4 +64,4 @@ class ProductFactory : IFactory
 
 // How it works
 var factory = new ProductFactory();
-factory.GetProduct('virtual')->Create();
+factory.GetProduct('virtual').Create();
