@@ -9,7 +9,7 @@
 /**
 * Interface for Product
 */
-interface Product
+interface IProduct
 {
   void Create();
 }
@@ -17,41 +17,41 @@ interface Product
 /**
 * Interface for Factory
 */
-interface Factory
+interface IFactory
 {
-  void getProduct($input);
+  void GetProduct(string input);
 }
 
 /**
 * Class NormalProduct
 */
-class NormalProduct implements Product
+class NormalProduct : IProduct
 {
-  public function create()
+  public void Create()
   {
-    echo "Created normal Product !\n";
+    Console.WriteLine("Created normal Product !\n");
   }
 }
 
 /**
 * Class VirtualProduct
 */
-class VirtualProduct implements Product
+class VirtualProduct : IProduct
 {
-  public function create()
+  public void Create()
   {
-    echo "Created virtual Product !\n";
+    Console.WriteLine("Created virtual Product !\n");
   }
 }
 
 /**
 * Class ProductFactory
 */
-class ProductFactory implements Factory
+class ProductFactory : IFactory
 {
-  public function getProduct($input)
+  public IProduct GetProduct(string input)
   {
-    if ($input === "normal")
+    if (input == "normal")
     {
       return new NormalProduct();
     }
@@ -63,5 +63,5 @@ class ProductFactory implements Factory
 }
 
 // How it works
-$factory = new ProductFactory();
-$factory->getProduct('virtual')->create();
+var factory = new ProductFactory();
+factory.GetProduct('virtual')->Create();
